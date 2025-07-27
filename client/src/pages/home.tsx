@@ -60,7 +60,7 @@ export default function Home() {
     <div className="min-h-screen bg-neutral">
       {/* Hero Section */}
       <div className="p-4">
-        <Card className="relative overflow-hidden shadow-xl min-h-screen rounded-2xl border-0">
+        <Card className="relative overflow-hidden shadow-xl rounded-2xl border-0" style={{ height: '80vh' }}>
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
             style={{
@@ -70,16 +70,16 @@ export default function Home() {
             <div className="absolute inset-0 bg-primary bg-opacity-60"></div>
           </div>
           
-          <div className="relative z-10 flex flex-col h-screen">
+          <div className="relative z-10 flex flex-col h-full">
             {/* Logo */}
-            <div className="flex justify-start p-8">
+            <div className="flex justify-start px-12 py-12 lg:px-16 lg:py-16">
               <div className="bg-white px-6 py-3 rounded-lg shadow-lg">
                 <h1 className="text-2xl font-bold text-primary">StrategicCo</h1>
               </div>
             </div>
             
             {/* Hero Content */}
-            <div className="flex-1 flex items-end pb-16 pl-8 pr-8 lg:pl-16 lg:pr-16">
+            <div className="flex-1 flex items-end px-12 pb-16 lg:px-16 lg:pb-20">
               <div className="max-w-2xl">
                 <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                   Transform Your Business Strategy
@@ -89,7 +89,7 @@ export default function Home() {
                 </p>
                 <Button 
                   onClick={scrollToContact}
-                  className="bg-accent text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-600 transition-colors duration-300 shadow-lg h-auto"
+                  className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/30 transition-all duration-300 shadow-lg h-auto border border-white/30"
                 >
                   Start Your Transformation
                 </Button>
@@ -111,140 +111,114 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Value Proposition Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary text-center mb-16">
-            How We Drive Success
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Strategic Planning Card */}
-            <Card className="p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border-0">
-              <img 
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                alt="Strategic planning and business analysis" 
-                className="w-full h-48 object-cover rounded-xl mb-6"
-              />
-              <h3 className="text-2xl font-bold text-primary mb-4">Strategic Planning</h3>
-              <p className="text-secondary leading-relaxed">
-                Develop comprehensive roadmaps that align your vision with market opportunities and operational capabilities.
-              </p>
-            </Card>
-
-            {/* Process Optimization Card */}
-            <Card className="p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border-0">
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                alt="Modern office workspace optimization" 
-                className="w-full h-48 object-cover rounded-xl mb-6"
-              />
-              <h3 className="text-2xl font-bold text-primary mb-4">Process Optimization</h3>
-              <p className="text-secondary leading-relaxed">
-                Streamline operations, eliminate inefficiencies, and implement scalable systems that drive productivity.
-              </p>
-            </Card>
-
-            {/* Digital Transformation Card */}
-            <Card className="p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border-0">
-              <img 
-                src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                alt="Digital transformation and technology integration" 
-                className="w-full h-48 object-cover rounded-xl mb-6"
-              />
-              <h3 className="text-2xl font-bold text-primary mb-4">Digital Transformation</h3>
-              <p className="text-secondary leading-relaxed">
-                Navigate technological evolution with confidence through strategic digital initiatives and change management.
-              </p>
-            </Card>
-
-            {/* Growth Strategy Card */}
-            <Card className="p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border-0">
-              <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                alt="Business growth analytics and strategy" 
-                className="w-full h-48 object-cover rounded-xl mb-6"
-              />
-              <h3 className="text-2xl font-bold text-primary mb-4">Growth Strategy</h3>
-              <p className="text-secondary leading-relaxed">
-                Identify and capitalize on expansion opportunities through data-driven market analysis and strategic positioning.
-              </p>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            
-            {/* Left Column: Header and Description */}
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-8">
-                Why Choose Us?
-              </h2>
-              <p className="text-xl text-secondary leading-relaxed">
-                Our proven track record, innovative methodologies, and commitment to your success set us apart. We don't just provide recommendations—we partner with you to ensure implementation and lasting results.
-              </p>
-            </div>
+      <div className="p-4">
+        <Card className="relative overflow-hidden shadow-xl rounded-2xl border-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80')`
+            }}
+          >
+            <div className="absolute inset-0 bg-primary bg-opacity-80"></div>
+          </div>
+          
+          <div className="relative z-10 py-20">
+            <div className="max-w-7xl mx-auto px-12 lg:px-16">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                {/* Left Column: Header and Description */}
+                <div>
+                  <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+                    Why Choose Us?
+                  </h2>
+                  <p className="text-xl text-gray-200 leading-relaxed">
+                    Our proven track record, innovative methodologies, and commitment to your success set us apart. We don't just provide recommendations—we partner with you to ensure implementation and lasting results.
+                  </p>
+                </div>
 
-            {/* Right Column: Accordion */}
-            <div>
-              <Accordion 
-                type="multiple" 
-                value={accordionValue} 
-                onValueChange={setAccordionValue}
-                className="space-y-4"
-              >
-                <AccordionItem value="item-1" className="border border-gray-200 rounded-xl overflow-hidden">
-                  <AccordionTrigger className="p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 hover:no-underline">
-                    <span className="text-lg font-semibold text-primary">Proven Track Record</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white">
-                    <p className="text-secondary leading-relaxed">
-                      Over 200 successful projects across Fortune 500 companies and emerging startups, with an average ROI increase of 40% within the first year of implementation.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
+                {/* Right Column: Accordion */}
+                <div>
+                  <Accordion 
+                    type="multiple" 
+                    value={accordionValue} 
+                    onValueChange={setAccordionValue}
+                    className="space-y-1"
+                  >
+                    <AccordionItem value="item-1" className="border-0">
+                      <AccordionTrigger className="py-6 hover:no-underline text-left">
+                        <div className="flex items-center gap-3">
+                          <div className="w-5 h-5 border border-gray-400 rounded-sm flex items-center justify-center">
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          </div>
+                          <span className="text-lg font-bold text-white">Proven Track Record</span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-4 pl-8">
+                        <p className="text-gray-300 leading-relaxed">
+                          Over 200 successful projects across Fortune 500 companies and emerging startups, with an average ROI increase of 40% within the first year of implementation.
+                        </p>
+                      </AccordionContent>
+                      <div className="border-b border-gray-600"></div>
+                    </AccordionItem>
 
-                <AccordionItem value="item-2" className="border border-gray-200 rounded-xl overflow-hidden">
-                  <AccordionTrigger className="p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 hover:no-underline">
-                    <span className="text-lg font-semibold text-primary">Industry Expertise</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white">
-                    <p className="text-secondary leading-relaxed">
-                      Deep knowledge across technology, healthcare, finance, manufacturing, and retail sectors, enabling us to provide contextually relevant solutions tailored to your industry's unique challenges.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
+                    <AccordionItem value="item-2" className="border-0">
+                      <AccordionTrigger className="py-6 hover:no-underline text-left">
+                        <div className="flex items-center gap-3">
+                          <div className="w-5 h-5 border border-gray-400 rounded-sm flex items-center justify-center">
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          </div>
+                          <span className="text-lg font-bold text-white">Industry Expertise</span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-4 pl-8">
+                        <p className="text-gray-300 leading-relaxed">
+                          Deep knowledge across technology, healthcare, finance, manufacturing, and retail sectors, enabling us to provide contextually relevant solutions tailored to your industry's unique challenges.
+                        </p>
+                      </AccordionContent>
+                      <div className="border-b border-gray-600"></div>
+                    </AccordionItem>
 
-                <AccordionItem value="item-3" className="border border-gray-200 rounded-xl overflow-hidden">
-                  <AccordionTrigger className="p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 hover:no-underline">
-                    <span className="text-lg font-semibold text-primary">Collaborative Approach</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white">
-                    <p className="text-secondary leading-relaxed">
-                      We work alongside your team, not in isolation. Our collaborative methodology ensures knowledge transfer and builds internal capabilities for sustained success.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
+                    <AccordionItem value="item-3" className="border-0">
+                      <AccordionTrigger className="py-6 hover:no-underline text-left">
+                        <div className="flex items-center gap-3">
+                          <div className="w-5 h-5 border border-gray-400 rounded-sm flex items-center justify-center">
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          </div>
+                          <span className="text-lg font-bold text-white">Collaborative Approach</span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-4 pl-8">
+                        <p className="text-gray-300 leading-relaxed">
+                          We work alongside your team, not in isolation. Our collaborative methodology ensures knowledge transfer and builds internal capabilities for sustained success.
+                        </p>
+                      </AccordionContent>
+                      <div className="border-b border-gray-600"></div>
+                    </AccordionItem>
 
-                <AccordionItem value="item-4" className="border border-gray-200 rounded-xl overflow-hidden">
-                  <AccordionTrigger className="p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 hover:no-underline">
-                    <span className="text-lg font-semibold text-primary">Measurable Results</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white">
-                    <p className="text-secondary leading-relaxed">
-                      Every engagement includes clear KPIs, regular progress reviews, and detailed reporting to ensure transparency and accountability throughout the project lifecycle.
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                    <AccordionItem value="item-4" className="border-0">
+                      <AccordionTrigger className="py-6 hover:no-underline text-left">
+                        <div className="flex items-center gap-3">
+                          <div className="w-5 h-5 border border-gray-400 rounded-sm flex items-center justify-center">
+                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          </div>
+                          <span className="text-lg font-bold text-white">Measurable Results</span>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-4 pl-8">
+                        <p className="text-gray-300 leading-relaxed">
+                          Every engagement includes clear KPIs, regular progress reviews, and detailed reporting to ensure transparency and accountability throughout the project lifecycle.
+                        </p>
+                      </AccordionContent>
+                      <div className="border-b border-gray-600"></div>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Card>
+      </div>
 
       {/* Contact Section */}
       <div className="p-4" id="contact">
@@ -366,55 +340,37 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-primary text-white py-16">
+      <footer className="bg-neutral py-16">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             
             {/* Logo Column */}
             <div>
-              <h3 className="text-2xl font-bold mb-6">StrategicCo</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Transforming businesses through strategic excellence and innovative solutions.
-              </p>
+              <h3 className="text-2xl font-bold text-primary">StrategicCo</h3>
             </div>
 
-            {/* Services Column */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Services</h4>
+            {/* Resources Column */}
+            <div className="lg:justify-self-end">
+              <h4 className="text-lg font-semibold mb-6 text-primary">Resources</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">Strategic Planning</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">Process Optimization</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">Digital Transformation</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">Growth Strategy</a></li>
+                <li><a href="#" className="text-secondary hover:text-primary transition-colors duration-200">Privacy</a></li>
+                <li><a href="#" className="text-secondary hover:text-primary transition-colors duration-200">Terms of Service</a></li>
               </ul>
             </div>
 
             {/* Company Column */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Company</h4>
+            <div className="lg:justify-self-end">
+              <h4 className="text-lg font-semibold mb-6 text-primary">Company</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">About Us</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">Our Team</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">Case Studies</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">Careers</a></li>
-              </ul>
-            </div>
-
-            {/* Contact Column */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Contact</h4>
-              <ul className="space-y-3">
-                <li><button onClick={scrollToContact} className="text-gray-300 hover:text-white transition-colors duration-200">Get in Touch</button></li>
-                <li><a href="tel:+1234567890" className="text-gray-300 hover:text-white transition-colors duration-200">+1 (234) 567-890</a></li>
-                <li><a href="mailto:hello@strategicco.com" className="text-gray-300 hover:text-white transition-colors duration-200">hello@strategicco.com</a></li>
-                <li className="text-gray-300">New York, NY</li>
+                <li><a href="#" className="text-secondary hover:text-primary transition-colors duration-200">About Us</a></li>
+                <li><button onClick={scrollToContact} className="text-secondary hover:text-primary transition-colors duration-200">Contact</button></li>
               </ul>
             </div>
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-gray-700 mt-12 pt-8">
-            <p className="text-gray-400 text-sm">
+          <div className="mt-12 pt-8">
+            <p className="text-muted text-sm">
               © 2024 StrategicCo. All rights reserved.
             </p>
           </div>
