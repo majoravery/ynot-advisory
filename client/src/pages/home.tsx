@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-neutral">
       {/* Hero Section */}
-      <div className="p-4">
+      <div className="p-6">
         <Card className="relative overflow-hidden rounded-2xl border-0" style={{ height: '80vh' }}>
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
@@ -101,8 +101,8 @@ export default function Home() {
       </div>
 
       {/* Who We Are Section */}
-      <section className="py-28 bg-neutral text-center">
-        <div className="max-w-4xl mx-auto px-8">
+      <section className="py-24 bg-neutral text-center">
+        <div className="max-w-4xl mx-auto px-12 lg:px-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-8">
             Who We Are
           </h2>
@@ -113,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <div className="p-4">
+      <div className="p-6">
         <Card className="relative overflow-hidden rounded-2xl border-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
@@ -238,7 +238,7 @@ export default function Home() {
       </div>
 
       {/* Contact Section */}
-      <div className="p-4" id="contact">
+      <div className="p-6" id="contact">
         <Card className="relative overflow-hidden rounded-2xl border-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
