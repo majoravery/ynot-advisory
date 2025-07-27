@@ -336,7 +336,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-neutral py-16">
-        <div className="max-w-7xl mx-auto px-12 lg:px-16">
+        <div className="px-12 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             
             {/* Logo Column */}
