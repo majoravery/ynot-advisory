@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Plus, X } from "lucide-react";
+import { Plus, X, Target, Users, Lightbulb, TrendingUp } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { insertContactSubmissionSchema, type InsertContactSubmission } from "@shared/schema";
@@ -149,10 +149,13 @@ export default function Home() {
                     <AccordionItem value="item-1" className="border-0">
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
                         <div className="flex items-center justify-between w-full">
-                          <span className="text-lg font-bold text-white">Proven Track Record</span>
-                          <div className="transition-transform duration-200 group-data-[state=open]/accordion-trigger:rotate-45">
+                          <div className="flex items-center gap-3">
+                            <Target className="h-5 w-5 text-gray-400" />
+                            <span className="text-lg font-bold text-white">Proven Track Record</span>
+                          </div>
+                          <div className="transition-transform duration-300 ease-in-out">
                             {accordionValue.includes("item-1") ? (
-                              <X className="h-5 w-5 text-gray-400" />
+                              <X className="h-5 w-5 text-gray-400 rotate-90" />
                             ) : (
                               <Plus className="h-5 w-5 text-gray-400" />
                             )}
@@ -170,10 +173,13 @@ export default function Home() {
                     <AccordionItem value="item-2" className="border-0">
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
                         <div className="flex items-center justify-between w-full">
-                          <span className="text-lg font-bold text-white">Industry Expertise</span>
-                          <div className="transition-transform duration-200">
+                          <div className="flex items-center gap-3">
+                            <Users className="h-5 w-5 text-gray-400" />
+                            <span className="text-lg font-bold text-white">Industry Expertise</span>
+                          </div>
+                          <div className="transition-transform duration-300 ease-in-out">
                             {accordionValue.includes("item-2") ? (
-                              <X className="h-5 w-5 text-gray-400" />
+                              <X className="h-5 w-5 text-gray-400 rotate-90" />
                             ) : (
                               <Plus className="h-5 w-5 text-gray-400" />
                             )}
@@ -191,10 +197,13 @@ export default function Home() {
                     <AccordionItem value="item-3" className="border-0">
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
                         <div className="flex items-center justify-between w-full">
-                          <span className="text-lg font-bold text-white">Collaborative Approach</span>
-                          <div className="transition-transform duration-200">
+                          <div className="flex items-center gap-3">
+                            <Lightbulb className="h-5 w-5 text-gray-400" />
+                            <span className="text-lg font-bold text-white">Collaborative Approach</span>
+                          </div>
+                          <div className="transition-transform duration-300 ease-in-out">
                             {accordionValue.includes("item-3") ? (
-                              <X className="h-5 w-5 text-gray-400" />
+                              <X className="h-5 w-5 text-gray-400 rotate-90" />
                             ) : (
                               <Plus className="h-5 w-5 text-gray-400" />
                             )}
@@ -212,10 +221,13 @@ export default function Home() {
                     <AccordionItem value="item-4" className="border-0">
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
                         <div className="flex items-center justify-between w-full">
-                          <span className="text-lg font-bold text-white">Measurable Results</span>
-                          <div className="transition-transform duration-200">
+                          <div className="flex items-center gap-3">
+                            <TrendingUp className="h-5 w-5 text-gray-400" />
+                            <span className="text-lg font-bold text-white">Measurable Results</span>
+                          </div>
+                          <div className="transition-transform duration-300 ease-in-out">
                             {accordionValue.includes("item-4") ? (
-                              <X className="h-5 w-5 text-gray-400" />
+                              <X className="h-5 w-5 text-gray-400 rotate-90" />
                             ) : (
                               <Plus className="h-5 w-5 text-gray-400" />
                             )}
