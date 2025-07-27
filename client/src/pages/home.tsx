@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Plus, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { insertContactSubmissionSchema, type InsertContactSubmission } from "@shared/schema";
@@ -60,7 +61,7 @@ export default function Home() {
     <div className="min-h-screen bg-neutral">
       {/* Hero Section */}
       <div className="p-4">
-        <Card className="relative overflow-hidden shadow-xl rounded-2xl border-0" style={{ height: '80vh' }}>
+        <Card className="relative overflow-hidden rounded-2xl border-0" style={{ height: '80vh' }}>
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
             style={{
@@ -100,7 +101,7 @@ export default function Home() {
       </div>
 
       {/* Who We Are Section */}
-      <section className="py-20 bg-neutral text-center">
+      <section className="py-28 bg-neutral text-center">
         <div className="max-w-4xl mx-auto px-8">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-8">
             Who We Are
@@ -113,7 +114,7 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <div className="p-4">
-        <Card className="relative overflow-hidden shadow-xl rounded-2xl border-0">
+        <Card className="relative overflow-hidden rounded-2xl border-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
             style={{
@@ -147,11 +148,15 @@ export default function Home() {
                   >
                     <AccordionItem value="item-1" className="border-0">
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
-                        <div className="flex items-center gap-3">
-                          <div className="w-5 h-5 border border-gray-400 rounded-sm flex items-center justify-center">
-                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                          </div>
+                        <div className="flex items-center justify-between w-full">
                           <span className="text-lg font-bold text-white">Proven Track Record</span>
+                          <div className="transition-transform duration-200 group-data-[state=open]/accordion-trigger:rotate-45">
+                            {accordionValue.includes("item-1") ? (
+                              <X className="h-5 w-5 text-gray-400" />
+                            ) : (
+                              <Plus className="h-5 w-5 text-gray-400" />
+                            )}
+                          </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-4 pl-8">
@@ -164,11 +169,15 @@ export default function Home() {
 
                     <AccordionItem value="item-2" className="border-0">
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
-                        <div className="flex items-center gap-3">
-                          <div className="w-5 h-5 border border-gray-400 rounded-sm flex items-center justify-center">
-                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                          </div>
+                        <div className="flex items-center justify-between w-full">
                           <span className="text-lg font-bold text-white">Industry Expertise</span>
+                          <div className="transition-transform duration-200">
+                            {accordionValue.includes("item-2") ? (
+                              <X className="h-5 w-5 text-gray-400" />
+                            ) : (
+                              <Plus className="h-5 w-5 text-gray-400" />
+                            )}
+                          </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-4 pl-8">
@@ -181,11 +190,15 @@ export default function Home() {
 
                     <AccordionItem value="item-3" className="border-0">
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
-                        <div className="flex items-center gap-3">
-                          <div className="w-5 h-5 border border-gray-400 rounded-sm flex items-center justify-center">
-                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                          </div>
+                        <div className="flex items-center justify-between w-full">
                           <span className="text-lg font-bold text-white">Collaborative Approach</span>
+                          <div className="transition-transform duration-200">
+                            {accordionValue.includes("item-3") ? (
+                              <X className="h-5 w-5 text-gray-400" />
+                            ) : (
+                              <Plus className="h-5 w-5 text-gray-400" />
+                            )}
+                          </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-4 pl-8">
@@ -198,11 +211,15 @@ export default function Home() {
 
                     <AccordionItem value="item-4" className="border-0">
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
-                        <div className="flex items-center gap-3">
-                          <div className="w-5 h-5 border border-gray-400 rounded-sm flex items-center justify-center">
-                            <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                          </div>
+                        <div className="flex items-center justify-between w-full">
                           <span className="text-lg font-bold text-white">Measurable Results</span>
+                          <div className="transition-transform duration-200">
+                            {accordionValue.includes("item-4") ? (
+                              <X className="h-5 w-5 text-gray-400" />
+                            ) : (
+                              <Plus className="h-5 w-5 text-gray-400" />
+                            )}
+                          </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-4 pl-8">
@@ -222,7 +239,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <div className="p-4" id="contact">
-        <Card className="relative overflow-hidden shadow-xl rounded-2xl border-0">
+        <Card className="relative overflow-hidden rounded-2xl border-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
             style={{
@@ -233,7 +250,7 @@ export default function Home() {
           </div>
           
           <div className="relative z-10 py-20">
-            <div className="max-w-4xl mx-auto px-8">
+            <div className="max-w-4xl mx-auto px-12 lg:px-16">
               <div className="text-center mb-12">
                 <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
                   Ready to Transform Your Business?
@@ -244,65 +261,36 @@ export default function Home() {
               </div>
 
               {/* Contact Form */}
-              <Card className="p-8 shadow-2xl max-w-2xl mx-auto border-0">
+              <Card className="p-8 max-w-2xl mx-auto border-0">
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="firstName" className="block text-sm font-semibold text-primary mb-2">
-                        First Name *
-                      </Label>
-                      <Input
-                        id="firstName"
-                        type="text"
-                        {...form.register("firstName")}
-                        className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
-                      />
-                      {form.formState.errors.firstName && (
-                        <p className="text-red-500 text-sm mt-1">{form.formState.errors.firstName.message}</p>
-                      )}
-                    </div>
-                    <div>
-                      <Label htmlFor="lastName" className="block text-sm font-semibold text-primary mb-2">
-                        Last Name *
-                      </Label>
-                      <Input
-                        id="lastName"
-                        type="text"
-                        {...form.register("lastName")}
-                        className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
-                      />
-                      {form.formState.errors.lastName && (
-                        <p className="text-red-500 text-sm mt-1">{form.formState.errors.lastName.message}</p>
-                      )}
-                    </div>
+                  <div>
+                    <Label htmlFor="firstName" className="block text-sm font-semibold text-primary mb-2">
+                      Name *
+                    </Label>
+                    <Input
+                      id="firstName"
+                      type="text"
+                      {...form.register("firstName")}
+                      className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
+                    />
+                    {form.formState.errors.firstName && (
+                      <p className="text-red-500 text-sm mt-1">{form.formState.errors.firstName.message}</p>
+                    )}
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="email" className="block text-sm font-semibold text-primary mb-2">
-                        Email *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        {...form.register("email")}
-                        className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
-                      />
-                      {form.formState.errors.email && (
-                        <p className="text-red-500 text-sm mt-1">{form.formState.errors.email.message}</p>
-                      )}
-                    </div>
-                    <div>
-                      <Label htmlFor="company" className="block text-sm font-semibold text-primary mb-2">
-                        Company
-                      </Label>
-                      <Input
-                        id="company"
-                        type="text"
-                        {...form.register("company")}
-                        className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
-                      />
-                    </div>
+                  <div>
+                    <Label htmlFor="email" className="block text-sm font-semibold text-primary mb-2">
+                      Email *
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      {...form.register("email")}
+                      className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
+                    />
+                    {form.formState.errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{form.formState.errors.email.message}</p>
+                    )}
                   </div>
 
                   <div>
@@ -313,7 +301,6 @@ export default function Home() {
                       id="message"
                       rows={4}
                       {...form.register("message")}
-                      placeholder="Tell us about your business challenges and objectives..."
                       className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent resize-vertical"
                     />
                     {form.formState.errors.message && (
@@ -328,10 +315,6 @@ export default function Home() {
                   >
                     {contactMutation.isPending ? "Sending..." : "Send Message"}
                   </Button>
-                  
-                  <p className="text-sm text-muted text-center">
-                    We'll respond within 24 hours to discuss your needs.
-                  </p>
                 </form>
               </Card>
             </div>
@@ -341,16 +324,16 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-neutral py-16">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="max-w-7xl mx-auto px-12 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             
             {/* Logo Column */}
-            <div>
+            <div className="lg:col-span-3">
               <h3 className="text-2xl font-bold text-primary">StrategicCo</h3>
             </div>
 
             {/* Resources Column */}
-            <div className="lg:justify-self-end">
+            <div>
               <h4 className="text-lg font-semibold mb-6 text-primary">Resources</h4>
               <ul className="space-y-3">
                 <li><a href="#" className="text-secondary hover:text-primary transition-colors duration-200">Privacy</a></li>
@@ -359,7 +342,7 @@ export default function Home() {
             </div>
 
             {/* Company Column */}
-            <div className="lg:justify-self-end">
+            <div>
               <h4 className="text-lg font-semibold mb-6 text-primary">Company</h4>
               <ul className="space-y-3">
                 <li><a href="#" className="text-secondary hover:text-primary transition-colors duration-200">About Us</a></li>
