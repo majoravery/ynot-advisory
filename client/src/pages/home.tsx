@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,15 +16,15 @@ import {
 } from "@/components/ui/accordion";
 import { Target, Users, Lightbulb, TrendingUp } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import {
   insertContactSubmissionSchema,
   type InsertContactSubmission,
-} from "@shared/schema";
+} from "@/lib/schema";
 
 export default function Home() {
   const { toast } = useToast();
   const [accordionValue, setAccordionValue] = useState(["item-1"]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<InsertContactSubmission>({
     resolver: zodResolver(insertContactSubmissionSchema),
@@ -37,29 +36,17 @@ export default function Home() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContactSubmission) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll respond within 24 hours to discuss your needs.",
-      });
-      form.reset();
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Failed to send message",
-        description: error.message || "Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
+  const onSubmit = async (data: InsertContactSubmission) => {
+    setIsSubmitting(true);
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  const onSubmit = (data: InsertContactSubmission) => {
-    contactMutation.mutate(data);
+    toast({
+      title: "Message sent successfully!",
+      description: "We'll respond within 24 hours to discuss your needs.",
+    });
+    form.reset();
+    setIsSubmitting(false);
   };
 
   const scrollToContact = () => {
@@ -394,10 +381,10 @@ export default function Home() {
 
                   <Button
                     type="submit"
-                    disabled={contactMutation.isPending}
+                    disabled={isSubmitting}
                     className="w-full bg-accent text-white py-4 rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors duration-100 shadow-lg h-auto"
                   >
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Card>
