@@ -36,6 +36,7 @@ export default {
         accent: {
           DEFAULT: "var(--accent)",
           foreground: "var(--accent-foreground)",
+          hover: "var(--accent-hover)",
         },
         destructive: {
           DEFAULT: "var(--destructive)",

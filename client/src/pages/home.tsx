@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,11 +9,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Plus, X, Target, Users, Lightbulb, TrendingUp } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Target, Users, Lightbulb, TrendingUp } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { insertContactSubmissionSchema, type InsertContactSubmission } from "@shared/schema";
+import {
+  insertContactSubmissionSchema,
+  type InsertContactSubmission,
+} from "@shared/schema";
 
 export default function Home() {
   const { toast } = useToast();
@@ -61,38 +71,52 @@ export default function Home() {
     <div className="min-h-screen bg-neutral">
       {/* Hero Section */}
       <div className="p-6">
-        <Card className="relative overflow-hidden rounded-2xl border-0" style={{ height: '80vh' }}>
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80')`
-            }}
+        <Card
+          className="relative overflow-hidden rounded-2xl border-0"
+          style={{ height: "80vh" }}
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            // style={{
+            //   backgroundImage: `url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80')`,
+            // }}
           >
             <div className="absolute inset-0 bg-primary bg-opacity-60"></div>
           </div>
-          
+
           <div className="relative z-10 flex flex-col h-full">
             {/* Logo */}
             <div className="flex justify-start px-12 py-12 lg:px-16 lg:py-16">
               <div className="bg-white px-6 py-3 rounded-lg shadow-lg">
-                <h1 className="text-2xl font-bold text-primary">StrategicCo</h1>
+                <h1 className="text-2xl font-bold text-primary">
+                  Ynot Advisory
+                </h1>
               </div>
             </div>
-            
+
             {/* Hero Content */}
             <div className="flex-1 flex items-end px-12 pb-16 lg:px-16 lg:pb-20">
               <div className="max-w-2xl">
-                <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                  Transform Your Business Strategy
+                <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                  <span className="block text-secondary mb-2">
+                    Strategic Growth.
+                  </span>
+                  <span className="block text-white">Simplified.</span>
                 </h1>
                 <p className="text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed">
-                  Expert consultancy services that drive measurable results and sustainable growth for forward-thinking organizations.
+                  A Singapore-based consultancy helping businesses navigate
+                  complexity and scale with clarity.
                 </p>
-                <Button 
+                <p className="text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed">
+                  We partner with founders, teams, and organisations to shape
+                  strategy, streamline operations, and turn insight into
+                  action.Ynot
+                </p>
+                <Button
                   onClick={scrollToContact}
-                  className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/30 transition-all duration-300 shadow-lg h-auto border border-white/30"
+                  className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/30 transition-all duration-100 shadow-lg h-auto border border-white/30"
                 >
-                  Start Your Transformation
+                  Start Your Journey
                 </Button>
               </div>
             </div>
@@ -106,43 +130,62 @@ export default function Home() {
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-8">
             Who We Are
           </h2>
-          <p className="text-xl text-secondary leading-relaxed">
-            We are a team of seasoned strategists, industry experts, and innovation catalysts who partner with ambitious organizations to unlock their full potential. With decades of combined experience across diverse sectors, we bring deep insights, proven methodologies, and a relentless focus on delivering tangible business outcomes that matter.
+          <p className="text-xl text-primary leading-relaxed mb-8">
+            Founded by <strong>Sidne Yeo</strong>, Ynot Advisory is a
+            Singapore-based consultancy that transforms how businesses approach
+            growth and innovation. We believe every challenge is an opportunity
+            waiting to be unlocked.
+          </p>
+          <p className="text-xl text-primary leading-relaxed mb-8">
+            Our approach combines strategic thinking with practical execution,
+            helping founders and business leaders navigate complex decisions
+            with clarity and confidence. From early-stage ventures to
+            established enterprises, we partner closely to deliver measurable
+            results.
+          </p>
+          <p className="text-xl text-primary leading-relaxed">
+            <i>
+              "Why not take the leap? Why not pursue ambitious goals? Because
+              Ynot?"
+            </i>{" "}
+            - This philosophy drives everything we do.
           </p>
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <div className="p-6">
+      <div className="p-6 pb-0">
         <Card className="relative overflow-hidden rounded-2xl border-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80')`
+              backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80')`,
             }}
           >
-            <div className="absolute inset-0 bg-primary bg-opacity-80"></div>
+            <div className="absolute inset-0 bg-secondary bg-opacity-80"></div>
           </div>
-          
+
           <div className="relative z-10 py-20">
             <div className="max-w-7xl mx-auto px-12 lg:px-16">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                
                 {/* Left Column: Header and Description */}
                 <div>
-                  <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+                  <h2 className="text-4xl lg:text-5xl font-bold text-secondary-foreground mb-8">
                     Why Choose Us?
                   </h2>
-                  <p className="text-xl text-gray-200 leading-relaxed">
-                    Our proven track record, innovative methodologies, and commitment to your success set us apart. We don't just provide recommendations—we partner with you to ensure implementation and lasting results.
+                  <p className="text-xl text-secondary-foreground leading-relaxed">
+                    Our proven track record, innovative methodologies, and
+                    commitment to your success set us apart. We don't just
+                    provide recommendations—we partner with you to ensure
+                    implementation and lasting results.
                   </p>
                 </div>
 
                 {/* Right Column: Accordion */}
                 <div>
-                  <Accordion 
-                    type="multiple" 
-                    value={accordionValue} 
+                  <Accordion
+                    type="multiple"
+                    value={accordionValue}
                     onValueChange={setAccordionValue}
                     className="space-y-1"
                   >
@@ -150,21 +193,19 @@ export default function Home() {
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center gap-3">
-                            <Target className="h-5 w-5 text-gray-400" />
-                            <span className="text-lg font-bold text-white">Proven Track Record</span>
-                          </div>
-                          <div className="transition-transform duration-300 ease-in-out">
-                            {accordionValue.includes("item-1") ? (
-                              <X className="h-5 w-5 text-gray-400 rotate-90" />
-                            ) : (
-                              <Plus className="h-5 w-5 text-gray-400" />
-                            )}
+                            <Target className="h-5 w-5 text-secondary-foreground" />
+                            <span className="text-lg font-bold text-secondary-foreground">
+                              Proven Track Record
+                            </span>
                           </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-4 pl-8">
-                        <p className="text-gray-300 leading-relaxed">
-                          Over 200 successful projects across Fortune 500 companies and emerging startups, with an average ROI increase of 40% within the first year of implementation.
+                        <p className="text-secondary-foreground leading-relaxed">
+                          Over 200 successful projects across Fortune 500
+                          companies and emerging startups, with an average ROI
+                          increase of 40% within the first year of
+                          implementation.
                         </p>
                       </AccordionContent>
                       <div className="border-b border-gray-600"></div>
@@ -174,21 +215,19 @@ export default function Home() {
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center gap-3">
-                            <Users className="h-5 w-5 text-gray-400" />
-                            <span className="text-lg font-bold text-white">Industry Expertise</span>
-                          </div>
-                          <div className="transition-transform duration-300 ease-in-out">
-                            {accordionValue.includes("item-2") ? (
-                              <X className="h-5 w-5 text-gray-400 rotate-90" />
-                            ) : (
-                              <Plus className="h-5 w-5 text-gray-400" />
-                            )}
+                            <Users className="h-5 w-5 text-secondary-foreground" />
+                            <span className="text-lg font-bold text-secondary-foreground">
+                              Industry Expertise
+                            </span>
                           </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-4 pl-8">
-                        <p className="text-gray-300 leading-relaxed">
-                          Deep knowledge across technology, healthcare, finance, manufacturing, and retail sectors, enabling us to provide contextually relevant solutions tailored to your industry's unique challenges.
+                        <p className="text-secondary-foreground leading-relaxed">
+                          Deep knowledge across technology, healthcare, finance,
+                          manufacturing, and retail sectors, enabling us to
+                          provide contextually relevant solutions tailored to
+                          your industry's unique challenges.
                         </p>
                       </AccordionContent>
                       <div className="border-b border-gray-600"></div>
@@ -198,21 +237,19 @@ export default function Home() {
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center gap-3">
-                            <Lightbulb className="h-5 w-5 text-gray-400" />
-                            <span className="text-lg font-bold text-white">Collaborative Approach</span>
-                          </div>
-                          <div className="transition-transform duration-300 ease-in-out">
-                            {accordionValue.includes("item-3") ? (
-                              <X className="h-5 w-5 text-gray-400 rotate-90" />
-                            ) : (
-                              <Plus className="h-5 w-5 text-gray-400" />
-                            )}
+                            <Lightbulb className="h-5 w-5 text-secondary-foreground" />
+                            <span className="text-lg font-bold text-secondary-foreground">
+                              Collaborative Approach
+                            </span>
                           </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-4 pl-8">
-                        <p className="text-gray-300 leading-relaxed">
-                          We work alongside your team, not in isolation. Our collaborative methodology ensures knowledge transfer and builds internal capabilities for sustained success.
+                        <p className="text-secondary-foreground leading-relaxed">
+                          We work alongside your team, not in isolation. Our
+                          collaborative methodology ensures knowledge transfer
+                          and builds internal capabilities for sustained
+                          success.
                         </p>
                       </AccordionContent>
                       <div className="border-b border-gray-600"></div>
@@ -222,21 +259,18 @@ export default function Home() {
                       <AccordionTrigger className="py-6 hover:no-underline text-left">
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center gap-3">
-                            <TrendingUp className="h-5 w-5 text-gray-400" />
-                            <span className="text-lg font-bold text-white">Measurable Results</span>
-                          </div>
-                          <div className="transition-transform duration-300 ease-in-out">
-                            {accordionValue.includes("item-4") ? (
-                              <X className="h-5 w-5 text-gray-400 rotate-90" />
-                            ) : (
-                              <Plus className="h-5 w-5 text-gray-400" />
-                            )}
+                            <TrendingUp className="h-5 w-5 text-secondary-foreground" />
+                            <span className="text-lg font-bold text-secondary-foreground">
+                              Measurable Results
+                            </span>
                           </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-4 pl-8">
-                        <p className="text-gray-300 leading-relaxed">
-                          Every engagement includes clear KPIs, regular progress reviews, and detailed reporting to ensure transparency and accountability throughout the project lifecycle.
+                        <p className="text-secondary-foreground leading-relaxed">
+                          Every engagement includes clear KPIs, regular progress
+                          reviews, and detailed reporting to ensure transparency
+                          and accountability throughout the project lifecycle.
                         </p>
                       </AccordionContent>
                       <div className="border-b border-gray-600"></div>
@@ -252,15 +286,15 @@ export default function Home() {
       {/* Contact Section */}
       <div className="p-6" id="contact">
         <Card className="relative overflow-hidden rounded-2xl border-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80')`
+              backgroundImage: `url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80')`,
             }}
           >
             <div className="absolute inset-0 bg-primary bg-opacity-75"></div>
           </div>
-          
+
           <div className="relative z-10 py-20">
             <div className="max-w-4xl mx-auto px-12 lg:px-16">
               <div className="text-center mb-12">
@@ -268,15 +302,22 @@ export default function Home() {
                   Ready to Transform Your Business?
                 </h2>
                 <p className="text-xl text-gray-200">
-                  Let's discuss how we can help you achieve your strategic objectives.
+                  Let's discuss how we can help you achieve your strategic
+                  objectives.
                 </p>
               </div>
 
               {/* Contact Form */}
               <Card className="p-8 max-w-2xl mx-auto border-0">
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-6"
+                >
                   <div>
-                    <Label htmlFor="firstName" className="block text-sm font-semibold text-primary mb-2">
+                    <Label
+                      htmlFor="firstName"
+                      className="block text-sm font-semibold text-primary mb-2"
+                    >
                       Name *
                     </Label>
                     <Input
@@ -286,12 +327,17 @@ export default function Home() {
                       className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
                     />
                     {form.formState.errors.firstName && (
-                      <p className="text-red-500 text-sm mt-1">{form.formState.errors.firstName.message}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {form.formState.errors.firstName.message}
+                      </p>
                     )}
                   </div>
 
                   <div>
-                    <Label htmlFor="email" className="block text-sm font-semibold text-primary mb-2">
+                    <Label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-primary mb-2"
+                    >
                       Email *
                     </Label>
                     <Input
@@ -301,12 +347,17 @@ export default function Home() {
                       className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
                     />
                     {form.formState.errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{form.formState.errors.email.message}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {form.formState.errors.email.message}
+                      </p>
                     )}
                   </div>
 
                   <div>
-                    <Label htmlFor="message" className="block text-sm font-semibold text-primary mb-2">
+                    <Label
+                      htmlFor="message"
+                      className="block text-sm font-semibold text-primary mb-2"
+                    >
                       How can we help you? *
                     </Label>
                     <Textarea
@@ -316,14 +367,16 @@ export default function Home() {
                       className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent resize-vertical"
                     />
                     {form.formState.errors.message && (
-                      <p className="text-red-500 text-sm mt-1">{form.formState.errors.message.message}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {form.formState.errors.message.message}
+                      </p>
                     )}
                   </div>
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     disabled={contactMutation.isPending}
-                    className="w-full bg-accent text-white py-4 rounded-xl font-semibold text-lg hover:bg-blue-600 transition-colors duration-300 shadow-lg h-auto"
+                    className="w-full bg-accent text-white py-4 rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors duration-100 shadow-lg h-auto"
                   >
                     {contactMutation.isPending ? "Sending..." : "Send Message"}
                   </Button>
@@ -336,39 +389,12 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-neutral py-16">
-        <div className="px-12 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            
-            {/* Logo Column */}
-            <div className="lg:col-span-3">
-              <h3 className="text-2xl font-bold text-primary">StrategicCo</h3>
-            </div>
-
-            {/* Resources Column */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6 text-primary">Resources</h4>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-secondary hover:text-primary transition-colors duration-200">Privacy</a></li>
-                <li><a href="#" className="text-secondary hover:text-primary transition-colors duration-200">Terms of Service</a></li>
-              </ul>
-            </div>
-
-            {/* Company Column */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6 text-primary">Company</h4>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-secondary hover:text-primary transition-colors duration-200">About Us</a></li>
-                <li><button onClick={scrollToContact} className="text-secondary hover:text-primary transition-colors duration-200">Contact</button></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="mt-12 pt-8">
-            <p className="text-muted text-sm">
-              © 2024 StrategicCo. All rights reserved.
-            </p>
-          </div>
+        <div className="px-12 lg:px-16 text-center">
+          {/* Logo Column */}
+          <h3 className="text-2xl font-bold text-primary mb-8">
+            Ynot Advisory
+          </h3>
+          <p className="text-gray-700 mb-8">Because Ynot?</p>
         </div>
       </footer>
     </div>
