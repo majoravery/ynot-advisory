@@ -15,28 +15,32 @@ npm run dev
 npm run build
 ```
 
-This will create a `dist` folder with your static site ready for deployment.
+This will create a `docs` folder with your static site ready for deployment.
 
 ## Deployment
 
 ### Netlify
+
 1. Build the project: `npm run build`
 2. Deploy the `dist` folder to Netlify
 3. The `_redirects` file will handle client-side routing
 
 ### Vercel
+
 1. Build the project: `npm run build`
 2. Deploy to Vercel
 3. The `vercel.json` file will handle client-side routing
 
 ### GitHub Pages
-1. Build the project: `npm run build`
-2. Deploy the `dist` folder to GitHub Pages
-3. You may need to set the base path in `vite.config.ts` if deploying to a subdirectory
+
+1. Push to main branch - GitHub Actions will automatically build and deploy
+2. The site will be available at `https://[username].github.io/ynot-advisory/`
+3. No manual build/deploy needed - it's fully automated
 
 ### Any Static Hosting
+
 1. Build the project: `npm run build`
-2. Upload the contents of the `dist` folder to your hosting provider
+2. Upload the contents of the `docs` folder to your hosting provider
 3. Ensure your hosting provider supports client-side routing (SPA fallback to index.html)
 
 ## Preview Build
