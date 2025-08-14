@@ -1,6 +1,6 @@
 /** @format */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card } from "@/components/ui/card";
@@ -25,6 +25,7 @@ export default function Home() {
   const { toast } = useToast();
   const [accordionValue, setAccordionValue] = useState(["item-1"]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const form = useForm<InsertContactSubmission>({
     resolver: zodResolver(insertContactSubmissionSchema),
@@ -53,12 +54,20 @@ export default function Home() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 400);
+  }, []);
+
   return (
     <div className="min-h-screen bg-neutral">
       {/* Hero Section */}
-      <div className="p-6">
+      <div className="hero p-6">
         <Card
-          className="relative overflow-hidden rounded-2xl border-0"
+          className={`relative overflow-hidden rounded-2xl border-0 opacity-0 transition-opacity duration-500 ease-out ${
+            isLoaded && "opacity-100"
+          }`}
           style={{ height: "80vh" }}
         >
           <div
@@ -84,22 +93,42 @@ export default function Home() {
             <div className="flex-1 flex items-end px-8 pb-12 lg:px-16 lg:pb-20">
               <div className="max-w-2xl">
                 <h1 className="text-4xl lg:text-7xl font-bold mb-4 lg:mb-6 leading-tight">
-                  <span className="block text-secondary lg:mb-2">
+                  <span
+                    className={`block text-secondary lg:mb-2 opacity-0 transition-opacity duration-500 ease-out delay-1000 ${
+                      isLoaded && "opacity-100"
+                    }`}
+                  >
                     Strategic Growth.
                   </span>
-                  <span className="block text-white">Simplified.</span>
+                  <span
+                    className={`block text-white opacity-0 transition-opacity duration-500 ease-out delay-2000 ${
+                      isLoaded && "opacity-100"
+                    }`}
+                  >
+                    Simplified.
+                  </span>
                 </h1>
-                <p className="text-l lg:text-2xl text-gray-200 mb-4 lg:mb-8 leading-relaxed">
+                <p
+                  className={`text-l lg:text-2xl text-gray-200 mb-4 lg:mb-8 leading-relaxed opacity-0 transition-opacity duration-500 ease-out delay-3500 ${
+                    isLoaded && "opacity-100"
+                  }`}
+                >
                   A Singapore-based consultancy helping businesses navigate
                   complexity and scale with clarity.
                 </p>
-                <p className="text-l lg:text-2xl text-gray-200 mb-4 lg:mb-8 leading-relaxed">
+                <p
+                  className={`text-l lg:text-2xl text-gray-200 mb-4 lg:mb-8 leading-relaxed opacity-0 transition-opacity duration-500 ease-out delay-3500 ${
+                    isLoaded && "opacity-100"
+                  }`}
+                >
                   We partner with founders, teams, and organisations to shape
                   strategy, streamline operations, and turn insight into action.
                 </p>
                 <Button
                   onClick={scrollToContact}
-                  className="bg-white/20 backdrop-blur-sm text-white px-6 py-3 lg:px-8 lg:py-4 rounded-xl text-base lg:text-lg font-semibold hover:bg-white/30 transition-all duration-100 shadow-lg h-auto border border-white/30"
+                  className={`bg-white/20 backdrop-blur-sm text-white px-6 py-3 lg:px-8 lg:py-4 rounded-xl text-base lg:text-lg font-semibold hover:bg-white/30 transition-all duration-100 shadow-lg h-auto border border-white/30 opacity-0 transition-opacity duration-500 ease-out delay-3600 ${
+                    isLoaded && "opacity-100"
+                  }`}
                 >
                   Start Your Journey
                 </Button>
@@ -110,7 +139,11 @@ export default function Home() {
       </div>
 
       {/* Who We Are Section */}
-      <section className="py-24 bg-neutral text-center">
+      <section
+        className={`py-24 bg-neutral text-center opacity-0 transition-opacity duration-500 ease-out delay-3700 ${
+          isLoaded && "opacity-100"
+        }`}
+      >
         <div className="max-w-4xl mx-auto px-8 lg:px-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-8">
             Who We Are
@@ -140,7 +173,11 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <div className="p-6 pb-0">
-        <Card className="relative overflow-hidden rounded-2xl border-0">
+        <Card
+          className={`relative overflow-hidden rounded-2xl border-0 opacity-0 transition-opacity duration-500 ease-out delay-3700 ${
+            isLoaded && "opacity-100"
+          }`}
+        >
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             // style={{
@@ -270,7 +307,11 @@ export default function Home() {
 
       {/* Contact Section */}
       <div className="p-6" id="contact">
-        <Card className="relative overflow-hidden rounded-2xl border-0">
+        <Card
+          className={`relative overflow-hidden rounded-2xl border-0 opacity-0 transition-opacity duration-500 ease-out delay-3700 ${
+            isLoaded && "opacity-100"
+          }`}
+        >
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             // style={{
@@ -394,7 +435,11 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-neutral py-16">
+      <footer
+        className={`bg-neutral py-16 opacity-0 transition-opacity duration-500 ease-out delay-3700 ${
+          isLoaded && "opacity-100"
+        }`}
+      >
         <div className="px-12 lg:px-16 text-center">
           {/* Logo Column */}
           <div className="flex justify-center mb-8">
