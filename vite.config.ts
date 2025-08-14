@@ -4,7 +4,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/ynot-advisory/",
+  base: process.env.GITHUB_PAGES === "true" ? "/ynot-advisory/" : "/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
