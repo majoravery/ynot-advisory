@@ -15,6 +15,11 @@ import {
 } from "@/components/ui/accordion";
 import { Target, Users, Lightbulb, TrendingUp } from "lucide-react";
 
+// NOTE: this is a quickfix for the images not showing up
+const getImageUrl = (path: string) => {
+  return `/ynot-advisory/${path}`;
+};
+
 export default function Home() {
   const [accordionValue, setAccordionValue] = useState(["item-1"]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -54,7 +59,7 @@ export default function Home() {
             {/* Logo */}
             <div className="flex justify-start px-3 py-6 lg:px-8 lg:py-10">
               <img
-                src="/logo-light.png"
+                src={getImageUrl("logo-light.png")}
                 alt="Ynot Advisory"
                 className="h-36 lg:h-48 w-auto"
               />
@@ -413,7 +418,7 @@ export default function Home() {
           {/* Logo Column */}
           <div className="flex justify-center mb-8">
             <img
-              src="/logo-dark.png"
+              src={getImageUrl("logo-dark.png")}
               alt="Ynot Advisory"
               className="h-48 lg:h-56 w-auto"
             />
