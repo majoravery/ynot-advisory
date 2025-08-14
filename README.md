@@ -1,4 +1,4 @@
-# YNot Advisory - Static Site
+# Ynot Advisory
 
 This is a static React application built with Vite.
 
