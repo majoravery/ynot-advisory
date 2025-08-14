@@ -1,8 +1,7 @@
 /** @format */
 
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, ValidationError } from "@formspree/react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,40 +14,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Target, Users, Lightbulb, TrendingUp } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import {
-  insertContactSubmissionSchema,
-  type InsertContactSubmission,
-} from "@/lib/schema";
 
 export default function Home() {
-  const { toast } = useToast();
   const [accordionValue, setAccordionValue] = useState(["item-1"]);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const form = useForm<InsertContactSubmission>({
-    resolver: zodResolver(insertContactSubmissionSchema),
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = async (data: InsertContactSubmission) => {
-    setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll respond within 24 hours to discuss your needs.",
-    });
-    form.reset();
-    setIsSubmitting(false);
-  };
+  const [state, handleSubmit] = useForm("mrbldbyy");
 
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -335,99 +306,97 @@ export default function Home() {
 
               {/* Contact Form */}
               <Card className="p-6 lg:p-8 max-w-2xl mx-auto border-0">
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="space-y-6"
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {state.succeeded ? (
+                  <>
+                    <p className="text-xl text-secondary-foreground leading-relaxed text-center">
+                      Thank you for your message.
+                    </p>
+                    <p className="text-xl text-secondary-foreground leading-relaxed text-center">
+                      We'll get back to you within 24 hours.
+                    </p>
+                  </>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label
+                          htmlFor="firstName"
+                          className="block text-sm font-semibold text-primary mb-2"
+                        >
+                          First Name *
+                        </Label>
+                        <Input
+                          id="firstName"
+                          name="firstName"
+                          required
+                          type="text"
+                          className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <Label
+                          htmlFor="lastName"
+                          className="block text-sm font-semibold text-primary mb-2"
+                        >
+                          Last Name *
+                        </Label>
+                        <Input
+                          id="lastName"
+                          name="lastName"
+                          required
+                          type="text"
+                          className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
+                        />
+                      </div>
+                    </div>
+
                     <div>
                       <Label
-                        htmlFor="firstName"
+                        htmlFor="email"
                         className="block text-sm font-semibold text-primary mb-2"
                       >
-                        First Name *
+                        Email *
                       </Label>
                       <Input
-                        id="firstName"
-                        type="text"
-                        {...form.register("firstName")}
+                        id="email"
+                        name="email"
+                        required
+                        type="email"
                         className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
                       />
-                      {form.formState.errors.firstName && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {form.formState.errors.firstName.message}
-                        </p>
-                      )}
                     </div>
+
                     <div>
                       <Label
-                        htmlFor="lastName"
+                        htmlFor="message"
                         className="block text-sm font-semibold text-primary mb-2"
                       >
-                        Last Name *
+                        How can we help you? *
                       </Label>
-                      <Input
-                        id="lastName"
-                        type="text"
-                        {...form.register("lastName")}
-                        className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={4}
+                        className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent resize-vertical"
                       />
-                      {form.formState.errors.lastName && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {form.formState.errors.lastName.message}
-                        </p>
-                      )}
                     </div>
-                  </div>
 
-                  <div>
-                    <Label
-                      htmlFor="email"
-                      className="block text-sm font-semibold text-primary mb-2"
-                    >
-                      Email *
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      {...form.register("email")}
-                      className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent"
+                    <ValidationError
+                      prefix="Message"
+                      field="message"
+                      errors={state.errors}
                     />
-                    {form.formState.errors.email && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {form.formState.errors.email.message}
-                      </p>
-                    )}
-                  </div>
 
-                  <div>
-                    <Label
-                      htmlFor="message"
-                      className="block text-sm font-semibold text-primary mb-2"
+                    <Button
+                      type="submit"
+                      disabled={state.submitting}
+                      className="w-full bg-accent text-white py-4 rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors duration-100 shadow-lg h-auto"
                     >
-                      How can we help you? *
-                    </Label>
-                    <Textarea
-                      id="message"
-                      rows={4}
-                      {...form.register("message")}
-                      className="rounded-xl border-gray-300 focus:ring-2 focus:ring-accent focus:border-transparent resize-vertical"
-                    />
-                    {form.formState.errors.message && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {form.formState.errors.message.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-accent text-white py-4 rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors duration-100 shadow-lg h-auto"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
+                      {state.submitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                )}
               </Card>
             </div>
           </div>
